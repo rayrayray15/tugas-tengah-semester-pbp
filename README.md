@@ -4,7 +4,7 @@ Anggota Kelompok :
 
 - Adrian Hakim Utomo - 2006597613
 
-- dlan Walid Muntashir - 2006597683
+- Adlan Walid Muntashir - 2006597683
 
 - Akbar Maliki Haqoni Jati - 2006596232
 
