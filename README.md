@@ -1,6 +1,6 @@
-# tugas-tengah-semester-pbp
+# Tugas Tengah Semester PBP
 
-Anggota Kelompok :
+## Anggota Kelompok :
 
 - Adrian Hakim Utomo - 2006597613
 
@@ -15,3 +15,27 @@ Anggota Kelompok :
 - Kartika Dian Pratiwi - 2006596270
 
 - Ryan Sujana Husein - 2006596485
+
+---
+
+## Deskripsi singkat :
+### **Vaksinfo**
+
+Vaksinfo adalah website penyedia informasi bagi masyarakat Indonesia yang menyediakan informasi seputar lokasi vaksin, info tentang vaksin-vaksin yang beredar di Indonesia, artikel berita dan tips-tips menjalani aktivitas selama pandemi, serta statistik COVID-19 di Indonesia.
+
+Vaksinfo juga dilengkapi dengan fitur yang bisa digunakan oleh user untuk menyampaikan kritik, saran, atau pertanyaan terkait website.
+
+---
+
+## Daftar Modul :
+- Beranda
+- User Login
+- Artikel (Berita dan tips & tricks)
+- Info Lokasi Vaksin
+- Info Vaksin di Indonesia
+- Statistik
+- Masukkan User (kritik, saran, pertanyaan)
+---
+
+## HerokuApp :
+[Click Here!](https://dashboard.heroku.com/apps/vaksinfo)
