@@ -54,4 +54,4 @@ Vaksinfo juga dilengkapi dengan fitur yang bisa digunakan oleh user untuk menyam
     - Melihat konten website
 ---
 ## HerokuApp :
-[Click Here!](https://dashboard.heroku.com/apps/vaksinfo)
+[Click Here!](https://vaksinfo.herokuapp.com/)
