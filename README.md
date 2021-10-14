@@ -36,6 +36,22 @@ Vaksinfo juga dilengkapi dengan fitur yang bisa digunakan oleh user untuk menyam
 - Statistik
 - Masukkan User (kritik, saran, pertanyaan)
 ---
-
+## Persona :
+- **Admin**
+    - Mengatur database dari website.
+    - Melakukan perubahan dan pembaruan fitur pada website
+    - Melihat konten website
+- **Pemerintah**
+    - Memberikan statistik COVID-19 di Indonesia (kasus baru, kematian, vaksinasi, dll)
+    - Melihat konten website
+- **Fasilitas kesehatan**
+    - Memberikan informasi ketersediaan vaksin serta jenisnya
+    - Melihat konten website
+- **Perusahaan Media**
+    - Menyediakan berita seputar COVID-19 di Indonesia
+    - Melihat konten website
+- **Masyarakat**
+    - Melihat konten website
+---
 ## HerokuApp :
 [Click Here!](https://dashboard.heroku.com/apps/vaksinfo)
