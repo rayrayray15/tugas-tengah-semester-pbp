@@ -34,7 +34,7 @@ Vaksinfo juga dilengkapi dengan fitur yang bisa digunakan oleh user untuk menyam
 - Info Lokasi Vaksin
 - Info Vaksin di Indonesia
 - Statistik
-- Masukkan User (kritik, saran, pertanyaan)
+- Masukan User (kritik, saran, pertanyaan)
 ---
 ## Persona :
 - **Admin**
