@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 import beranda.urls as beranda
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(beranda)),
