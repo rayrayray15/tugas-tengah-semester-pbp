@@ -41,8 +41,11 @@ def logoutUser(request) :
 
 @login_required(login_url="login")
 def json_data(request) :
-    data = serializers.serialize('json', User.objects.all())
-    return HttpResponse(data, content_type="application/json")
+    if not request.user.is_staff :
+        return redirect('/')
+    else :
+        data = serializers.serialize('json', User.objects.all())
+        return HttpResponse(data, content_type="application/json")
 
 
 @login_required(login_url="login")
