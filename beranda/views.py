@@ -12,7 +12,7 @@ from django.core import serializers
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html', {}) 
+    return render(request, 'Homepage.html', {})
 
 def loginPage(request):
     if request.user.is_authenticated :
