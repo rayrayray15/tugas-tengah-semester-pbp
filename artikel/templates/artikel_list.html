@@ -79,6 +79,12 @@
             crossorigin="anonymous"></script>
     </header>
 
+    <div class="search-bar mt-sm-2 mr-2">
+        <form action="" method="get">
+            <input type="text" class="form-control" name ="q" value = "{{ request.GET.q }}" id="id_q" placeholder="Search...">
+        </form>
+    </div>
+
     <div class="container">
         <div class="row">
             {% if object_list %}
