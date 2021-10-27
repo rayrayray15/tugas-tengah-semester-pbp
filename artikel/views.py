@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
+from django.core.paginator import Paginator
 from .models import Artikel
 
 def index(request):
@@ -9,6 +10,7 @@ def index(request):
 class ArtikelListView(ListView):
     model = Artikel
     template_name = 'artikel_list.html'
+    paginate_by = 9
 
     def get_queryset(self):
         query = self.request.GET.get('q')
