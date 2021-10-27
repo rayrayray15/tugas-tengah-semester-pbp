@@ -204,6 +204,9 @@ footer {
     margin: auto;
     box-shadow: 0 2px 5px #000000;
     border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 .foot {
     width: 150px;
