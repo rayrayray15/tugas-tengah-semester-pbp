@@ -8,3 +8,15 @@
 	margin-right: auto; 
 	margin-left: auto; 
 }
+
+.canvRow1Wrapper {
+	min-height: 40vh;
+}
+
+.canvRow2Wrapper {
+	min-height: 75vh;
+}
+
+.canvRow3Wrapper {
+	min-height: 70vh;
+}
