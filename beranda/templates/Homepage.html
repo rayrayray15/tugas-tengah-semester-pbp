@@ -31,7 +31,7 @@
                         <a class="nav-link" href="">Lokasi Vaksin</a>  <!-- ON GOING -->
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Statistika</a>  <!-- ON GOING -->
+                        <a class="nav-link" href="{% url 'index_stats' %}">Statistik</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="">Tanya Jawab</a>  <!-- ON GOING -->
@@ -122,7 +122,7 @@
         </section>
         <section class="gambar2">
             <div class="gambarstat">
-                <a href="">  <!-- ON GOING -->
+                <a href="{% url 'index_stats' %}"> 
                 <img src="{% static 'images/statistik.png' %}" class="stat" alt="statistik">
                 </a>
             </div>
