@@ -70,8 +70,12 @@
     <div class="container">
         <div class="search-bar">
             <form action="" method="get">
-                <input type="text" class="form-control" name="q" value="{{ request.GET.q }}" id="id_q"
-                    placeholder="Pencarian...">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="q" value="{{ request.GET.q }}" id="id_q"
+                        placeholder="Pencarian...">
+                    <button type="submit" class="input-group-text btn-danger"><i class="bi bi-search me-2"></i>
+                        Search</button>
+                </div>
             </form>
         </div>
     </div>
@@ -116,11 +120,11 @@
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
             {% else %}
-            <li class="disabled"><span>&laquo;</span></li>
+            <li class="disabled"></li>
             {% endif %}
             {% for i in paginator.page_range %}
             {% if page_obj.number == i %}
-            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            <li><a href="?page={{ i }}" class="active">{{ i }}</a></li>
             {% else %}
             <li><a href="?page={{ i }}">{{ i }}</a></li>
             {% endif %}
@@ -128,7 +132,7 @@
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
             {% else %}
-            <li class="disabled"><span>&raquo;</span></li>
+            <li class="disabled"></li>
             {% endif %}
         </ul>
         {% endif %}
