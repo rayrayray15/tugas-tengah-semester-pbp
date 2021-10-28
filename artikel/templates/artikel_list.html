@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Artikel | vaksinfo</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" rel="stylesheet">
@@ -71,7 +71,7 @@
         <div class="search-bar">
             <form action="" method="get">
                 <input type="text" class="form-control" name="q" value="{{ request.GET.q }}" id="id_q"
-                    placeholder="Search...">
+                    placeholder="Pencarian...">
             </form>
         </div>
     </div>
@@ -80,7 +80,7 @@
         <div class="row">
             {% if object_list %}
             {% for artikel in object_list %}
-            <div class="col-md-4 col-sm-6 d-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
                 <div class="card">
 
                     <a href="{{ artikel.slug }}"><img class="card-img-top embed-responsive-item"
