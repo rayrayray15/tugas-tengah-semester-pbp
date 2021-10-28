@@ -71,6 +71,8 @@ $.ajax(
 				},],
 			},
 			options: { 
+				maintainAspectRatio: false,
+				responsive: true,
 				scales: { y: { beginAtZero: true, } },
 				plugins: 
 				{
@@ -118,6 +120,8 @@ $.ajax(
 			},
 			options: 
 			{
+				maintainAspectRatio: false,
+				responsive: true,
 				plugins: 
 				{
 					title: 
@@ -153,6 +157,8 @@ $.ajax(
 			},
 			options: 
 			{
+				maintainAspectRatio: false,
+				responsive: true,
 				plugins: 
 				{
 					title: 
@@ -227,6 +233,8 @@ $.ajax(
 			},
 			options: 
 			{
+				maintainAspectRatio: false,
+				responsive: true,
 				plugins: 
 				{
 					title: 
@@ -247,7 +255,7 @@ $.ajax(
 				},
 			},
 		});
-		let provincesArrSorted = provincesArr;
+		let provincesArrSorted = provincesArr.slice(0);
 		provincesArrSorted.sort();
 		for(prov of provincesArrSorted)
 		{
