@@ -247,8 +247,9 @@ $.ajax(
 				},
 			},
 		});
-		provincesArr.sort();
-		for(prov of provincesArr)
+		let provincesArrSorted = provincesArr;
+		provincesArrSorted.sort();
+		for(prov of provincesArrSorted)
 		{
 			$(`#prov-select`).append($(`<option>`, 
 			{

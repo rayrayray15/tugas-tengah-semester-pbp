@@ -76,7 +76,7 @@
             crossorigin="anonymous"></script>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
 		<div class="text-center" style="margin-top: 1vw;">
 			<p class="display-4">Statistik</p>
 		</div>
@@ -86,10 +86,10 @@
 		</div>
 		<div class="statRow">
 			<div class="row">
-				<div class="col">
+				<div class="col-md-6 col-sm-12">
 					<canvas id="vax-demographic-chart"></canvas>
 				</div>
-				<div class="col">
+				<div class="col-md-6 col-sm-12">
 					<canvas id="vax-stage-chart"></canvas>
 				</div>
 			</div>
@@ -99,10 +99,10 @@
 		</div>
 		<div class="statRow" style="margin-bottom: 1vw;">
 			<div class="row">
-			<div class="col-8">
+			<div class="col-md-8 col-sm-6">
 				<canvas id="province-chart"></canvas>
 			</div>
-			<div class="col-4 text-center" style="margin-top: 20px; padding-top: 2px;">
+			<div class="col-md-4 col-sm-6 text-center" style="margin-top: 20px; padding-top: 2px;">
 				<h4>Cek data per provinsi</h4>
 				<select class="form-select form-select-sm" id="prov-select" style="margin-bottom: 20px; margin-top: 20px;">
 					<option selected>Pilih provinsi</option>
