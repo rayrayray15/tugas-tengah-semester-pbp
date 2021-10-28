@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import include, path
 import beranda.urls as beranda
 import artikel.urls as artikel
-
+import statistik.urls as statistik
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(beranda)),
-    path('artikel/', include(artikel))
+    path('artikel/', include(artikel)),
+    path('statistik/', include(statistik)),
 ]
