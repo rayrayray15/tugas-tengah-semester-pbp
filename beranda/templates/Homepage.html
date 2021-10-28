@@ -69,18 +69,18 @@
                     <input type="radio" name="radio-btn" id="radio2">
                     <input type="radio" name="radio-btn" id="radio3">
                     <div class="slide first">
-                        <img src="{% static 'images/dummy1.jpeg' %}" alt="">
+                        <img src="{% static 'images/berita4.jpeg' %}" alt="">
                     </div>
                     <div class="slide">
-                        <img src="{% static 'images/dummy2.jpg' %}" alt="">
+                        <img src="{% static 'images/berita2.jpeg' %}" alt="">
                     </div>
                     <div class="slide">
-                        <img src="{% static 'images/dummy3.jpeg' %}" alt="">
+                        <img src="{% static 'images/berita3.jpeg' %}" alt="">
                     </div>
                     <div class="navigation-auto">
                         <div class="auto-btn1"></div>
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
                     </div>
                 </div>
                 <div class="navigation-manual">
@@ -88,6 +88,13 @@
                     <label for="radio2" class="manual-btn"></label>
                     <label for="radio3" class="manual-btn"></label>
                 </div>
+            </div>
+        </section>
+        <section>
+            <div class="next">
+                <a href="{% url 'artikel_list' %}">
+                    <p>Baca lebih lengkap disini</p>
+                </a>
             </div>
         </section>
     </div>

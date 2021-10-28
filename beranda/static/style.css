@@ -47,8 +47,10 @@
     transition: 2s;
 }
 .slide img {
-    width: 800px;
-    height: 500px;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 500px;
 }
 .navigation-manual {
     position: absolute;
@@ -214,4 +216,10 @@ footer {
     height: auto;
     margin-left: 520px;
     padding: 20px;
+}
+.next {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color:#000080;
+    text-decoration: none;
 }
