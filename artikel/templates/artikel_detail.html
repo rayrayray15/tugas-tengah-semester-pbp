@@ -68,7 +68,24 @@
     </header>
 
     <div class="container">
-        {% autoescape off %}
+    <div class="row">
+        <div class="col-4">
+            <div class ="container">
+            <h3>Artikel Lainnya</h3>
+            {% if articles %}
+            {% for article in articles %}
+            <a href="{{ article.slug }}"><img class="img-fluid" src="{{ article.image_url}}" width="50" height="50"></a>
+            <a href="{{ article.slug }}" class="card-title-link">{{article.title}}</a>
+            {{article.pub_date}}
+            <br>
+            {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class ="container">
+            {% autoescape off %}
             <h2>{{ object.title }}</h2>
             {% load i18n %}
 
@@ -79,6 +96,9 @@
             <img class="img-fluid" src="{{ object.image_url}}">
             {{ object.body }}
         {% endautoescape %}
+            </div>
+        </div>
+    </div>
     </div>
 
 </body>

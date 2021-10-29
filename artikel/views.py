@@ -24,3 +24,8 @@ class ArtikelListView(ListView):
 class ArtikelDetailView(DetailView):
     model = Artikel
     template_name = 'artikel_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ArtikelDetailView , self).get_context_data(**kwargs)
+        context['articles'] = Artikel.objects.order_by('-id')[:10]
+        return context
