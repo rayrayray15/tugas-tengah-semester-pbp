@@ -133,3 +133,4 @@ virtualenv/
 .idea/
 Kelompok/
 staticfiles/
+.DS_Store
