@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'beranda',
     'artikel',
     'statistik',
+    'faq',
 ]
 
 MIDDLEWARE = [
