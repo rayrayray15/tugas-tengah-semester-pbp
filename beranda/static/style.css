@@ -129,7 +129,7 @@
     padding-top: 5px;
 }
 .lain {
-    color: azure;
+    color: #6C4A4A;
     font-family: Cabin;
     font-size: 25px;
 }
@@ -166,11 +166,6 @@
     display: flex;
     align-content: center;
     align-items: center;
-}
-.laen {
-    color: azure;
-    font-family: Cabin;
-    font-size: 25px;
 }
 .qna {
     margin-left: 250px;

@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{% url 'artikel_list' %}">Artikel</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'index_infovaksin' %}">Info Vaksin</a>  <!-- ON GOING -->
+                        <a class="nav-link" href="{% url 'index_infovaksin' %}">Info Vaksin</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="">Lokasi Vaksin</a>  <!-- ON GOING -->
@@ -34,7 +34,7 @@
                         <a class="nav-link" href="{% url 'index_stats' %}">Statistik</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Tanya Jawab</a>  <!-- ON GOING -->
+                        <a class="nav-link" href="{% url 'index_faq' %}">Tanya Jawab</a>
                     </li>
 
                     {% if not request.user.is_authenticated %}
@@ -109,7 +109,7 @@
         </section>
         <section class="gambar">
             <div>
-                <a href="">  <!-- ON GOING -->
+                <a href="{% url 'index_infovaksin' %}">
                     <img src="{% static 'images/vaksin.png' %}" class="logovaksin" alt="vaksin">
                 </a>
             </div>
@@ -124,7 +124,7 @@
                 <p class="lain">Statistik</p>
             </div>
             <div class="qna">
-                <p class="laen">Tanya Jawab</p>
+                <p class="lain">Tanya Jawab</p>
             </div>
         </section>
         <section class="gambar2">
@@ -134,7 +134,7 @@
                 </a>
             </div>
             <div class="qnapic">
-                <a href="">  <!-- ON GOING -->
+                <a href="{% url 'index_faq' %}">
                 <img src="{% static 'images/qna.png' %}" class="picqna" alt="qna">
                 </a>
             </div>
