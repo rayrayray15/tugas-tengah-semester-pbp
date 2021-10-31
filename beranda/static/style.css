@@ -218,3 +218,11 @@ footer {
     color:#000080;
     text-decoration: none;
 }
+
+.tabel {
+    padding: 8px;
+}
+tr {
+    border: 1px solid black;
+    background-color: #D6EEEE;
+}
