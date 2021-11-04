@@ -6,13 +6,15 @@
 
 }
 .navbar-nav {
-    margin-left: 50px;
+    text-align: center;
     text-transform: uppercase;
     background-color: #FFB1B1;
     font-family: Ubuntu;
     font-size: 15px;
     font-weight: Bold;
-    
+}
+.navbar-toggler {
+	margin-right: 2vw;
 }
 .berita {
     margin-top: 20px;
@@ -129,7 +131,7 @@
     padding-top: 5px;
 }
 .lain {
-    color: azure;
+    color: #6C4A4A;
     font-family: Cabin;
     font-size: 25px;
 }
