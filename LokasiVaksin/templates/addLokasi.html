@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="container">
+    <h2>Tambah Lokasi Vaksin</h2>
+    <form method = 'POST'>
+        {% csrf_token %}
+        <!-- <div class="form-group"> -->
+        <div class="form-group">
+            <table>
+                {{add_form.as_table}}
+            </table>
+        </div>
+
+        <button type="submit">Tambah Lokasi Vaksin</button>
+    </form>
+</div>
+{% endblock contents %}

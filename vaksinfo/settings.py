@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'artikel',
     'statistik',
     'faq',
-    'infovaksin'
+    'infovaksin',
+    'LokasiVaksin',
 ]
 
 MIDDLEWARE = [
