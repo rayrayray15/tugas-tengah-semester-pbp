@@ -5,8 +5,19 @@
     padding: 0;
 
 }
+::-webkit-scrollbar {
+  width: 14px;
+}
+::-webkit-scrollbar-track {
+  background: #ffb1b1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #fc1c5c; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #de0156; 
+}
 .navbar-nav {
-    margin-left: 50px;
     text-transform: uppercase;
     background-color: #FFB1B1;
     font-family: Ubuntu;
