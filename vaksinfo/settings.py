@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'artikel',
     'statistik',
     'faq',
+    'infovaksin'
 ]
 
 MIDDLEWARE = [

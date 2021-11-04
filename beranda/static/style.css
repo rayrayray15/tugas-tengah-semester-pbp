@@ -169,11 +169,6 @@
     align-content: center;
     align-items: center;
 }
-.laen {
-    color: azure;
-    font-family: Cabin;
-    font-size: 25px;
-}
 .qna {
     margin-left: 250px;
 }
@@ -224,4 +219,12 @@ footer {
     font-weight: 400;
     color:#000080;
     text-decoration: none;
+}
+
+.tabel {
+    padding: 8px;
+}
+tr {
+    border: 1px solid black;
+    background-color: #D6EEEE;
 }

@@ -19,6 +19,7 @@ import beranda.urls as beranda
 import artikel.urls as artikel
 import statistik.urls as statistik
 import faq.urls as faq
+import infovaksin.urls as infovaksin
 
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     path('artikel/', include(artikel)),
     path('statistik/', include(statistik)),
     path('tanya-jawab/', include(faq)),
+    path('infovaksin/', include(infovaksin))
 
 ]
