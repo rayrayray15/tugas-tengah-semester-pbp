@@ -11,32 +11,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'style_webkit.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- START OF NAVBAR -->
      <header class="header">
         <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #FFB1B1">
-            <a href=""><img class="logo" src="{% static 'images/Logo.png' %}"></a>
+            <a href="{%url 'index' %}"><img class="logo" src="{% static 'images/Logo.png' %}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Artikel</a>
+                        <a class="nav-link" href="{% url 'artikel_list' %}">Artikel</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Info Vaksin</a>
+                        <a class="nav-link" href="{% url 'index_infovaksin' %}">Info Vaksin</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Lokasi Vaksin</a>
+                        <a class="nav-link" href="{% url 'lokasi_vaksin' %}">Lokasi Vaksin</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'index_stats' %}">Statistik</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Tanya Jawab</a>
+                        <a class="nav-link" href="{% url 'index_faq' %}">Tanya Jawab</a>
                     </li>
 
                     {% if not request.user.is_authenticated %}

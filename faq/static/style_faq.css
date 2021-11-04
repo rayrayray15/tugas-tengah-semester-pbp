@@ -32,7 +32,7 @@ h1 {
     position: relative;
     cursor: pointer;
 }
-/* Untuk hide jawaban */
+
 .accordion-item-header::after {
     content: "\002B";
     font-size: 2rem;
