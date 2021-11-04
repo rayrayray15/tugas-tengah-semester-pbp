@@ -32,13 +32,13 @@
                         <a class="nav-link" href="{% url 'index_infovaksin' %}">Info Vaksin</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Lokasi Vaksin</a>
+                        <a class="nav-link" href="{% url 'lokasi_vaksin' %}">Lokasi Vaksin</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'index_stats' %}">Statistik</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Tanya Jawab</a>
+                        <a class="nav-link" href="{% url 'index_faq' %}">Tanya Jawab</a>
                     </li>
 
                     {% if not request.user.is_authenticated %}
