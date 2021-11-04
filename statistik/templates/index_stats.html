@@ -88,7 +88,7 @@
 		</div>
 		<div class="statRow">
 			<div class="row canvRow1Wrapper">
-				<div class="col-md-6 col-sm-12">
+				<div class="col-md-6 col-sm-12" id="vaxDemChartWrapper">
 					<canvas id="vax-demographic-chart"></canvas>
 				</div>
 				<div class="col-md-6 col-sm-12">
@@ -96,12 +96,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="statRow canvRow2Wrapper">
+		<div class="statRow canvRow2Wrapper" id="mainChartWrapper">
 			<canvas id="main-chart"></canvas>
 		</div>
 		<div class="statRow" style="margin-bottom: 1vw;">
 			<div class="row">
-			<div class="col-md-8 col-sm-6 canvRow3Wrapper">
+			<div class="col-md-8 col-sm-6 canvRow3Wrapper" id="provChartWrapper">
 				<canvas id="province-chart"></canvas>
 			</div>
 			<div class="col-md-4 col-sm-6 text-center" style="margin-top: 20px; padding-top: 2px;">
@@ -117,6 +117,10 @@
 					<p class="h6" style="margin: 0;">Kasus Meninggal</p>
 					<p style="margin-bottom: 2vw;" id="prov-ded">N/A</p>
 				</div>
+				{% if request.user.is_staff %}
+					<p class="h6" style="margin-top: 1vw;">Staff Action:</p>
+					<button class="btn btn-primary btn-lg" id="refreshBtn">Refresh</button>
+				{% endif %}
 			</div>
 			</div>
 		</div>
