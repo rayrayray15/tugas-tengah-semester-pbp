@@ -1,4 +1,3 @@
-import feedback as feedback
 from django.urls import include, path
 from .views import dataPage, index, json_data, logoutUser, dataPage, cekLogin, index_fb, add_fb, fb_list
 from .views import loginPage
