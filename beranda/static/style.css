@@ -189,12 +189,12 @@
     margin-top: 0px;
 }
 .picqna {
-	width: 150px;
+	width: 250px;
     height: auto;
 }
 .stat:hover {
     opacity: 0.5;
-}	</div>
+}
 .picqna:hover {
     opacity: 0.5;
 }
@@ -221,6 +221,7 @@ footer {
     margin-right: auto;
 }
 .next {
+    margin-left: 840px !important;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     color:#000080;
@@ -233,4 +234,15 @@ footer {
 tr {
     border: 1px solid black;
     background-color: #D6EEEE;
+}
+#feedback a{ display:block; position:fixed; top:100px; right:-8px;
+    padding:7px 5px;
+ }
+.fb:hover{
+    width: 42px;
+    height: auto;
+}
+.fb {
+    width: 40px;
+    height: auto;
 }
