@@ -26,7 +26,7 @@ const qs = document.getElementById('qs')
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
 console.log(csrf)
 
-const url = ""
+const url = "qs"
 
 const handleAlerts = (type, text) =>{
     alertBox.innerHTML = `<div class="alert alert-${type}" role="alert">
