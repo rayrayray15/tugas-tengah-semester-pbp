@@ -3,8 +3,16 @@ from django.db import models
 # Create your models here.
 class Faq(models.Model):
     question = models.CharField(max_length=1000)
-    answer = models.TextField(max_length=1000)
+    answer = models.TextField
 
-def __str__(self):
-    return self.question
+    def __str__(self):
+        return self.question
 
+
+class Qs(models.Model):
+    qs = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.qs
+
+    
