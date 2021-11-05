@@ -78,7 +78,8 @@
     </header>
 
     <h1>Tanya Jawab</h1>
-    
+	
+    {% if request.user.is_authenticated %}
     <div class="accordion">  
       <div class="search-bar">
         <form action="{% url 'index_faq' %}" method="POST">
@@ -92,6 +93,7 @@
         </form>
       </div>        
     </div>
+    {% endif %}
 
     {% for result in results %}
     <div class="accordion">
