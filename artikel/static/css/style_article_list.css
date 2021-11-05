@@ -44,14 +44,7 @@
 }
 
 .card-body {
-    font-family: 'Lato', sans-serif;
-}
-
-.card-footer-link {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    color:#000080;
-    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
 }
 
 .pagination {
@@ -74,4 +67,20 @@
     border: 1px solid #880808;
 }
   
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: #ddd; color:#880808;}
+
+.add-article-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-danger {
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    font-weight: 700;
+}
+
+.form-control {
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    font-weight: 700;
+}

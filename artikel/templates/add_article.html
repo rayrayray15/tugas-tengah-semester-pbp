@@ -9,13 +9,13 @@
     <title>Artikel | vaksinfo</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'style_webkit.css' %}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style_article_detail.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_add_article.css' %}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     <link
         href="https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Slab&family=Zen+Kaku+Gothic+Antique:wght@400;700&display=swap"
         rel="stylesheet">
@@ -39,13 +39,13 @@
                         <a class="nav-link" href="{% url 'index_infovaksin' %}">Info Vaksin</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'lokasi_vaksin' %}">Lokasi Vaksin</a>
+                        <a class="nav-link" href="">Lokasi Vaksin</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'index_stats' %}">Statistik</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'index_faq' %}">Tanya Jawab</a>
+                        <a class="nav-link" href="">Tanya Jawab</a>
                     </li>
 
                     {% if not request.user.is_authenticated %}
@@ -72,55 +72,89 @@
             crossorigin="anonymous"></script>
     </header>
 
-    <div class="row">
-
-        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
-            <div class="article">
-                {% autoescape off %}
-                <h2 class="article-title"><strong>{{ object.title }}</strong></h2>
-                {% load i18n %}
-
-                <div class="article-date">
-                    {% language 'id' %}
-                    <i class='far fa-clock'></i> {{object.pub_date | date:"d F Y"}}<br>
-                    {% endlanguage %}
+    {% if request.user.is_staff %}
+    <div class="container mt-4">
+        <h1 class="text-center"><strong>TAMBAH ARTIKEL</strong></h1>
+        <form id="article-form">
+            <div class="row add-article">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group col-12">
+                    <label class="col-12"><b>{{ field.label }}</b></label>
+                    {{ field }}
                 </div>
-
-                <img class="img-fluid main-image" src="{{ object.image_url}}">
-                <div class="article-body">
-                    {{ object.body }}
-                </div>
-                {% endautoescape %}
+                {% endfor %}
+                <input type="submit" class="btn btn-danger" value="Tambah Artikel" />
             </div>
-        </div>
-
-        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center mr-10">
-            <div class="recent-articles">
-                <div class="recent-posts">
-                    <div class="recent-posts-heading">
-                        <a href="{% url 'artikel_list' %}">
-                            <h2>Artikel Lainnya</h2>
-                        </a>
-                    </div>
-                    {% if articles %}
-                    {% for article in articles %}
-                    <div class="content">
-                        <ul>
-                            <li><a href="{{ article.slug }}">
-                                    <h5>{{article.title}}</h5>
-                                </a>
-                                <span>{{article.pub_date}}</span>
-                            </li>
-                        </ul>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
+        <form>
+    </div>
+    <hr />
+    
+    <div class="container">
+        <table class="table table-bordered table-light" id="my_articles">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>DAFTAR ARTIKEL DIBUAT</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{{ article.slug }}">{{article.title}}</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
     </div>
 
+    {% else%}
+    <div class="container"><p>Anda bukan admin</p></div>
+    {% endif %}
+
+    {% block javascript %}
+    <script>
+        /*
+            On submiting the form, send the POST ajax
+            request to server and after successfull submission
+            display the object.
+        */
+        $("#article-form").submit(function (e) {
+            // preventing from page reload and default actions
+            e.preventDefault();
+            // serialize the data for sending the form data.
+            var serializedData = $(this).serialize();
+            // make POST ajax call
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'article_cbv' %}",
+                data: serializedData,
+                success: function (response) {
+                    // on successfull creating object
+                    // 1. clear the form.
+                    $("#article-form").trigger('reset');
+                    $("#article-form").focus();
+    
+                    var instance = JSON.parse(response["instance"]);
+                    var fields = instance[0]["fields"];
+                    $("#my_articles tbody").prepend(
+                        `<tr>
+                        <td class="table-success">+</td>
+                        <td class="table-success"><a href="${fields["slug"]||""}">${fields["title"]||""}</a></td>
+                        </tr>`
+                    )
+                },
+                error: function (response) {
+                    // alert the error if any error occured
+                    alert(response["responseJSON"]["error"]);
+                }
+            })
+        })
+
+    </script>
+    {% endblock javascript %}
 </body>
 
 </html>
