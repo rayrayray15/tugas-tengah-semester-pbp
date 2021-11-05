@@ -1,9 +1,20 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 
 {% block contents %}
-<div class="container">
+<style>
+tr {
+  background-color: white;
+  border-color: black;
+}
+.container{
+    max-width: 80%;
+    margin: auto;
+}
+</style>
+
+<div class="container" >
     <h2>Tambah Lokasi Vaksin</h2>
-    <form method = 'POST'>
+    <form method = 'POST' >
         {% csrf_token %}
         <!-- <div class="form-group"> -->
         <div class="form-group">

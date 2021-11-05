@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import AddLokasi
+from .models import AddLokasi, Pulau, Provinsi
 from .forms import addLokasiForm
 
 from django.contrib.auth.decorators import login_required
@@ -23,14 +23,12 @@ def addLokasiDef(request):
         if add_form.is_valid():
             add_form.save()
 
-            return redirect('')
+            return redirect('lokasi_vaksin')
     response = {
         'add_form': add_form
     }
     return render(request, 'addLokasi.html', response)
 
-def cuaca(request):
-    return render(request, 'weather.html')
 
 
 
