@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from .models import Faq
+from .models import Faq,Qs
 from django.core.paginator import Paginator
+from django.http import JsonResponse
+from .forms import QsForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -16,4 +19,20 @@ def index(request):
             return render(request, 'index_faq.html', {"results":results})
     
     return render(request, 'index_faq.html', {'faq':page_obj})
+
+@login_required(login_url="login") 
+def qs(request):
+    form = QsForm(request.POST or None, request.FILES or None)
+    data= {}
+
+    if request.is_ajax():
+        if form.is_valid():
+            form.save()
+            data['qs'] = form.cleaned_data.get('qs')
+            data['status'] = 'ok'
+            return JsonResponse(data)
+
+    context = {'form':form,
+    }
     
+    return render(request, 'index_faq.html',context)

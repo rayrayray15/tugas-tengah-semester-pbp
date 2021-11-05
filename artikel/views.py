@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.views import View
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.core import serializers
 from .models import Artikel
-
-def index(request):
-    return render(request, 'index.html', {}) 
+from .forms import ArtikelForm
 
 class ArtikelListView(ListView):
     model = Artikel
@@ -29,3 +30,26 @@ class ArtikelDetailView(DetailView):
         context = super(ArtikelDetailView , self).get_context_data(**kwargs)
         context['articles'] = Artikel.objects.order_by('-id')[:10]
         return context
+
+class AddArticleView(View):
+    form_class = ArtikelForm
+    template_name = "add_article.html"
+
+    def get(self, *args, **kwargs):
+        form = self.form_class()
+        articles = Artikel.objects.all().order_by('-id')
+        return render(self.request, self.template_name, 
+            {"form": form, "articles": articles})
+
+    def post(self, *args, **kwargs):
+        if self.request.is_ajax and self.request.method == "POST":
+            form = self.form_class(self.request.POST)
+            if form.is_valid():
+                instance = form.save()
+                ser_instance = serializers.serialize('json', [ instance, ])
+                # send to client side.
+                return JsonResponse({"instance": ser_instance}, status=200)
+            else:
+                return JsonResponse({"error": form.errors}, status=400)
+
+        return JsonResponse({"error": ""}, status=400)
