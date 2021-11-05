@@ -17,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Slab&family=Zen+Kaku+Gothic+Antique:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <body>
@@ -83,8 +87,8 @@
     </div>
 
     {% if request.user.is_staff %}
-    <div class="add-article-btn">
-            <a class="btn btn-danger" href="{% url 'article_cbv' %}" role="button">Tambah Artikel</strong></a>
+    <div class="add-article-btn mt-1">
+            <a class="btn btn-danger rounded-0 add-button" href="{% url 'article_cbv' %}" role="button">Tambah Artikel</a>
     </div>
     {% endif %}
 

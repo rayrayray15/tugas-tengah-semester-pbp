@@ -98,7 +98,9 @@
             <div class="recent-articles">
                 <div class="recent-posts">
                     <div class="recent-posts-heading">
-                        <h2>Artikel Lainnya</h2>
+                        <a href="{% url 'artikel_list' %}">
+                            <h2>Artikel Lainnya</h2>
+                        </a>
                     </div>
                     {% if articles %}
                     {% for article in articles %}

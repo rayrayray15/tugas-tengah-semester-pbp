@@ -74,6 +74,14 @@
     text-decoration: none;
 }
 
+.recent-posts-heading a {
+    text-decoration: none;
+}
+
+.recent-posts-heading a h2:hover {
+	color: #880808;
+}
+
 .recent-posts-heading h2 {
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
     font-weight: 700;
