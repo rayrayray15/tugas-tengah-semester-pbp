@@ -37,7 +37,7 @@ class AddArticleView(View):
 
     def get(self, *args, **kwargs):
         form = self.form_class()
-        articles = Artikel.objects.order_by('-id')[:10]
+        articles = Artikel.objects.all().order_by('-id')
         return render(self.request, self.template_name, 
             {"form": form, "articles": articles})
 

@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -73,9 +73,9 @@
         <div class="search-bar">
             <form action="" method="get">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="q" value="{{ request.GET.q }}" id="id_q"
+                    <input type="text" class="form-control rounded-0" name="q" value="{{ request.GET.q }}" id="id_q"
                         placeholder="Pencarian...">
-                    <button type="submit" class="input-group-text btn-danger"><i class="bi bi-search me-2"></i>
+                    <button type="submit" class="input-group-text btn-danger rounded-0"><i class="bi bi-search me-2"></i>
                         Search</button>
                 </div>
             </form>
@@ -83,8 +83,8 @@
     </div>
 
     {% if request.user.is_staff %}
-    <div class="container">
-        <a class="btn btn-primary" href="{% url 'article_cbv' %}" role="button">Tambah Artikel</a>
+    <div class="add-article-btn">
+            <a class="btn btn-danger" href="{% url 'article_cbv' %}" role="button">Tambah Artikel</strong></a>
     </div>
     {% endif %}
 
@@ -94,7 +94,6 @@
             {% for artikel in object_list %}
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
                 <div class="card">
-
                     <a href="{{ artikel.slug }}"><img class="card-img-top embed-responsive-item"
                             src="{{ artikel.image_url}}" alt="thumbnail"></a>
                     <div class="card-body">
@@ -108,12 +107,6 @@
 
                         <h5 class="card-text">
                             <a href="{{ artikel.slug }}" class="card-title-link">{{artikel.title}}</a>
-                        </h5>
-                    </div>
-
-                    <div class="card-footer">
-                        <h5 class="card-text">
-                            <a href="{{ artikel.slug }}" class="card-footer-link">Selanjutnya</a>
                         </h5>
                     </div>
 

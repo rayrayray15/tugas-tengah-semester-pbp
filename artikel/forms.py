@@ -14,4 +14,4 @@ class ArtikelForm(forms.ModelForm):
 
     class Meta:
         model = Artikel
-        fields = "__all__" 
+        fields = "__all__"
