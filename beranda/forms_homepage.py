@@ -5,7 +5,7 @@ from django.db.models.base import Model
 from django.forms import fields
 
 class FeedbackForm(forms.Form) :
-    CHOICES = [('B', 'Bad'), ('A', 'Average'), ('G', 'Good')]
+    CHOICES = [('B', 'Buruk'), ('C', 'Cukup Baik'), ('A', 'Baik')]
     experience = forms.CharField(label='experience', widget=forms.RadioSelect(choices=CHOICES))
     comments = forms.CharField(widget=forms.Textarea)
     name = forms.CharField(max_length=100)
