@@ -136,7 +136,7 @@
     font-family: Cabin;
     font-size: 25px;
 }
-.row {
+.rowcs {
 	width: 100% !important;
 }
 .hp-col {
@@ -218,10 +218,11 @@ footer {
     margin-right: auto;
 }
 .next {
-    margin-left: 65vw;
+	margin-top: 2vw;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     color:#000080;
+	text-align: center;
     text-decoration: none;
 }
 
