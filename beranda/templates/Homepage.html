@@ -93,16 +93,14 @@
 					</div>
 				</div>
 			</section>
-			<section>
-				<div class="next">
-					<a href="{% url 'artikel_list' %}">
-						<p>Baca lebih lengkap disini</p>
-					</a>
-				</div>
-			</section>
+			<div class="next">
+				<a href="{% url 'artikel_list' %}">
+					<p>Baca lebih lengkap disini</p>
+				</a>
+			</div>
 		</div>
 		<div class="box">
-			<div class="row">
+			<div class="row rowcs">
 					<div class="col-sm-12 col-md-6 hp-col">
 						<p class="lain">Info Vaksin</p>
 						<a href="{% url 'index_infovaksin' %}">
@@ -116,7 +114,7 @@
 						</a>
 					</div>
 			</div>
-			<div class="row row2">
+			<div class="row row2 rowcs">
 				<div class="col-sm-12 col-md-6 hp-col">
 					<p class="lain">Statistik</p>
 					<a href="{% url 'index_stats' %}"> 
