@@ -37,12 +37,14 @@
     height: 500px;
     border-radius: 10px;
     overflow: hidden;
-
+	justify-content: center;
+    text-align: center;
 }
 .slides {
     width: 500%;
     height: 500px;
     display: flex;
+	overflow: hidden;
 }
 .slides input {
     display: none;
@@ -50,6 +52,7 @@
 .slide {
     width: 20%;
     transition: 2s;
+	overflow: hidden;
 }
 .slide img {
     width: 100%;
@@ -58,12 +61,10 @@
     max-height: 500px;
 }
 .navigation-manual {
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
+    margin-top: -50px;
     display: flex;
     justify-content: center;
-    
+    text-align: center;
 }
 .manual-btn {
     border: 2px solid #000000;
@@ -88,9 +89,7 @@
     margin-left: -40%;
 }
 .navigation-auto {
-    position: absolute;
-    display: flex;
-    width: 800px;
+    display: none;
     justify-content: center;
     margin-top: 460px;
 }
@@ -103,13 +102,13 @@
 .navigation-auto div:not(:last-child) {
     margin-right: 40px;
 }
-#radio1:checked ~ .navigation-auto .auto-btn1 {
+#radio1:checked ~ .btn-1 {
     background: black;
 }
-#radio2:checked ~ .navigation-auto .auto-btn2 {
+#radio2:checked ~ .btn-2 {
     background: black;
 }
-#radio3:checked ~ .navigation-auto .auto-btn3 {
+#radio3:checked ~ .btn-3 {
     background: black;
 }
 .box {
@@ -140,10 +139,7 @@
 .row {
 	width: 100% !important;
 }
-.col-sm-12 {
-	text-align: center;
-}
-.col-md-6 {
+.hp-col {
 	text-align: center;
 }
 .lokasi {
@@ -195,7 +191,7 @@
 }
 .stat:hover {
     opacity: 0.5;
-}	</div>
+}
 .picqna:hover {
     opacity: 0.5;
 }
@@ -222,6 +218,7 @@ footer {
     margin-right: auto;
 }
 .next {
+    margin-left: 65vw;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     color:#000080;
@@ -234,4 +231,15 @@ footer {
 tr {
     border: 1px solid black;
     background-color: #D6EEEE;
+}
+#feedback a{ display:block; position:fixed; top:100px; right:-8px;
+    padding:7px 5px;
+ }
+.fb:hover{
+    width: 42px;
+    height: auto;
+}
+.fb {
+    width: 40px;
+    height: auto;
 }

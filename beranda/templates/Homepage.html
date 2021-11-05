@@ -80,16 +80,16 @@
 						<div class="slide">
 							<img src="{% static 'images/berita3.jpeg' %}" alt="">
 						</div>
-						<div class="navigation-auto">
-							<div class="auto-btn1"></div>
-							<div class="auto-btn2"></div>
-							<div class="auto-btn3"></div>
-						</div>
+					</div>
+					<div class="navigation-auto">
+						<div class="auto-btn1"></div>
+						<div class="auto-btn2"></div>
+						<div class="auto-btn3"></div>
 					</div>
 					<div class="navigation-manual">
-						<label for="radio1" class="manual-btn"></label>
-						<label for="radio2" class="manual-btn"></label>
-						<label for="radio3" class="manual-btn"></label>
+						<label for="radio1" class="manual-btn btn-1"></label>
+						<label for="radio2" class="manual-btn btn-2"></label>
+						<label for="radio3" class="manual-btn btn-3"></label>
 					</div>
 				</div>
 			</section>
@@ -103,13 +103,13 @@
 		</div>
 		<div class="box">
 			<div class="row">
-					<div class="col-sm-12 col-md-6">
+					<div class="col-sm-12 col-md-6 hp-col">
 						<p class="lain">Info Vaksin</p>
 						<a href="{% url 'index_infovaksin' %}">
 							<img src="{% static 'images/vaksin.png' %}" class="logovaksin" alt="vaksin">
 						</a>
 					</div>
-					<div class="col-sm-12 col-md-6 lokasi">
+					<div class="col-sm-12 col-md-6 hp-col lokasi">
 						<p class="lain">Lokasi Vaksin</p>
 						<a href="">  <!-- ON GOING -->
 						<img src="{% static 'images/lokasi.png' %}" class="locvaksin lokasiimg" alt="locvaksin">
@@ -117,13 +117,13 @@
 					</div>
 			</div>
 			<div class="row row2">
-				<div class="col-sm-12 col-md-6">
+				<div class="col-sm-12 col-md-6 hp-col">
 					<p class="lain">Statistik</p>
 					<a href="{% url 'index_stats' %}"> 
 					<img src="{% static 'images/statistik.png' %}" class="stat" alt="statistik">
 					</a>
 				</div>
-				<div class="qna col-sm-12 col-md-6">
+				<div class="qna col-sm-12 col-md-6 hp-col">
 					<p class="lain">Tanya Jawab</p>
 					<a href="{% url 'index_faq' %}">
 					<img src="{% static 'images/qna.png' %}" class="picqna" alt="qna">
@@ -131,6 +131,11 @@
 				</div>
 			</div>
 		</div>
+        <div id="feedback">
+        <a href="{% url 'feedback' %}">
+            <img src="{% static 'images/feedback.png' %}" class="fb">
+        </a>
+    </div>
 		<footer>
 			<div class="vaksinfo">
 				<a href="{% url 'index' %}">

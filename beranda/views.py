@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+
+from .forms_homepage import FeedbackForm
 from .forms_login import CreateUserForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
@@ -13,6 +15,15 @@ from django.core import serializers
 # Create your views here.
 def index(request):
     return render(request, 'Homepage.html', {})
+
+def feedback(request):
+    return render(request, 'formpage.html', {})
+
+def feedbackPage(request):
+    form = FeedbackForm(request.POST)
+    if (form.is_valid()):
+        return redirect('feedback')
+    return render(request, 'formpage.html', {'form':form})
 
 def loginPage(request):
     if request.user.is_authenticated :
