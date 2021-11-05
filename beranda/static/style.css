@@ -139,10 +139,7 @@
 .row {
 	width: 100% !important;
 }
-.col-sm-12 {
-	text-align: center;
-}
-.col-md-6 {
+.hp-col {
 	text-align: center;
 }
 .lokasi {
@@ -189,7 +186,7 @@
     margin-top: 0px;
 }
 .picqna {
-	width: 250px;
+	width: 150px;
     height: auto;
 }
 .stat:hover {
