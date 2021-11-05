@@ -100,4 +100,48 @@
         </div>
     </div>
 
+    
+    <!-- COMMENT SECTION BELOW -->
+    
+    <!-- <div class="adrian">
+        {% with comments.count as total_comments %}
+        <h2>
+            {{ total_comments }} Comment {{ total_comments|pluralize }}
+        </h2>
+        {% endwith %}
+        {% for comment in comments %}
+        Comment {{ forloop.counter }} by {{ comment.name }}
+        on {{ comment.publish }}
+        {{ comment.content|linebreaks }}
+        {% empty %}
+        <p>There are no comments for this post.</p>
+        {% endfor %}
+        <h2>Make a new comment</h2>
+        
+        <form id="myForm" method="post" action="">
+            {{comment_form.as_p}}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </form>
+    </div> -->
+
+    <section class="form">
+        <h3>Sudah vaksin? Beri tahu yang lainnya tentang apa yang kamu rasakan!</h3>
+        <form class="forms" method="POST" action="">
+            {% csrf_token %}
+            <div class="form-container">
+                <div class="tags">
+                    <label for="nama">Name</label>
+                    <label for="lokasi">Your Comment</label>
+                </div>
+                <div class="isian">
+                    <label for="form-nama">{{form.name}}</label>
+                    <label for="form-nama">{{form.content}}</label>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+            </div>
+        </form>
+    </section>
     <div id="overlay"></div>

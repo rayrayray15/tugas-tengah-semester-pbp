@@ -1,12 +1,19 @@
 from django.http import JsonResponse
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from vaksinfo import settings
-import json
-import os
+from .forms import NewCommentForm
 
 # Create your views here.
 def index(request):
-    return render(request,'infovaksin.html',{})
+    context = {}
+
+    form = NewCommentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/infovaksin")
+    
+    context['form'] = form
+    return render(request,'infovaksin.html',context)
 
 # def show_json(request):
 #     return JsonResponse()
@@ -51,3 +58,37 @@ def vaksindata(request) :
     }
   ]
     return JsonResponse({'datas' : data})
+
+# def post_comment(request, post):
+#     comments = post.comments.filter(status=True)
+
+#     user_comment = None
+
+#     if request.method == 'POST':
+#         comment_form = NewCommentForm(request.POST)
+#         if comment_form.is_valid():
+#             user_comment = comment_form.save(commit=False)
+#             # user_comment.post = post
+#             user_comment.save()
+#             return HttpResponseRedirect('/infovaksin')
+#     else:
+#         comment_form = NewCommentForm()
+
+#     return render(request, 'infovaksin.html', 
+#         {
+#         'user_comment' : user_comment, 
+#         'comments' : comments, 
+#         'comment_form' : comment_form,
+#         },
+#         )
+
+# def comment_gan(request):
+#     context = {}
+
+#     form = NewCommentForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         return HttpResponseRedirect("/")
+    
+#     context['form'] = form
+#     return render(request, 'infovaksin.html', context)

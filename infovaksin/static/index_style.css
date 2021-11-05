@@ -259,6 +259,17 @@ section {
     border: 0px;
 }
 
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+}
+
 /* CODE FOR POP UP BELOW */
 
 .popup {
