@@ -102,6 +102,40 @@
 
     
     <!-- COMMENT SECTION BELOW -->
+    <hr>
+    <div class="pemisah">
+        <h3>Sudah Vaksin? Beri tahu yang lainnya tentang apa yang kamu rasakan!</h3>
+        <br>
+        <h4>Komentar</h4>
+        <br>
+        {% if not comments.all %}
+            No Comments Yet... <a href="#">
+            Add One</a>
+        {% else %}
+            {% for comment in comments.all %}
+                <strong>
+                    {{ comment.name }} -
+                    {{ comment.date }}
+                </strong>
+                <br>
+                {{comment.content}}
+                <br>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <h3>Tambahkan Komentar</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+                <tr>
+                    <td colspan="2">
+                        <input type="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
     
     <!-- <div class="adrian">
         {% with comments.count as total_comments %}
@@ -125,23 +159,25 @@
         </form>
     </div> -->
 
-    <section class="form">
-        <h3>Sudah vaksin? Beri tahu yang lainnya tentang apa yang kamu rasakan!</h3>
-        <form class="forms" method="POST" action="">
+    <!-- <section class="komengan">
+        <div class="comment-title">
+            <h3>Sudah vaksin? Beri tahu yang lainnya tentang apa yang kamu rasakan!</h3>
+        </div>
+        <form class="formulir" method="POST" action="">
             {% csrf_token %}
-            <div class="form-container">
-                <div class="tags">
-                    <label for="nama">Name</label>
-                    <label for="lokasi">Your Comment</label>
-                </div>
-                <div class="isian">
-                    <label for="form-nama">{{form.name}}</label>
-                    <label for="form-nama">{{form.content}}</label>
-                </div>
+            <div class="name">
+                <label>Name</label>
+                {{form.name}}
+            </div>
+            <div class="komen">
+                <label for="komen">Your Comment</label>
+                {{form.content}}
+                <label for="form-name"></label>
+                <label for="form-content"></label>
             </div>
             <div class="submit-button">
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
             </div>
         </form>
-    </section>
+    </section> -->
     <div id="overlay"></div>

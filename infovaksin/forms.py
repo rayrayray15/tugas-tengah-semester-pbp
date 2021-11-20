@@ -1,11 +1,14 @@
 from django import forms
 from .models import Comment
 
-class NewCommentForm(forms.ModelForm):
+# class CommentForm(forms.ModelForm):
+#     content = forms.CharField(widget=forms.Textarea(attrs= {'rows' : '4'}))
+
+#     class Meta:
+#         model = Comment
+#         fields = ('content', )
+
+class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('name', 'content')
-        # widgets = {
-        #     "name": forms.TextInput(attrs ={"class": "col-sm-12"}),
-        #     "content": forms.TextInput(attrs={"class": "form-control"})
-        # }
+        fields = "__all__"

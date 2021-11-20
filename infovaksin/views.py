@@ -1,22 +1,41 @@
 from django.http import JsonResponse
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render
-from .forms import NewCommentForm
+from django.shortcuts import render, redirect
+from .models import Comment
+from .forms import CommentForm
 
 # Create your views here.
 def index(request):
-    context = {}
+    comments = Comment.objects.all().values()
+    context = {'comments' : comments}
 
-    form = NewCommentForm(request.POST or None)
+    form = CommentForm(request.POST or None)
+
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/infovaksin")
-    
+        if request.method == "POST":
+            return HttpResponseRedirect("/infovaksin")
+
     context['form'] = form
+
     return render(request,'infovaksin.html',context)
+
 
 # def show_json(request):
 #     return JsonResponse()
+
+# def add_komen(request):
+#     context = {}
+
+#     form = CommentForm(request.POST or None)
+
+#     if form.is_valid():
+#         form.save()
+#         if request.method == "POST":
+#             return redirect('infovaksin:index')
+    
+#     context['form'] = form
+#     return render(request, 'infovaksin.html', context)
 
 def vaksindata(request) :
     data = [
