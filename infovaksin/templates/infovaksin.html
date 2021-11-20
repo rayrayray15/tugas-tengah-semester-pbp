@@ -106,6 +106,9 @@
     <div class="pemisah">
         <h3>Sudah Vaksin? Beri tahu yang lainnya tentang apa yang kamu rasakan!</h3>
         <br>
+        {% if not request.user.is_authenticated %}
+        <h4>Login untuk melihat dan memberikan komentar</h4>
+        {% else %}
         <h4>Komentar</h4>
         <br>
         {% if not comments.all %}
@@ -121,7 +124,7 @@
                 <br>
             {% endfor %}
         {% endif %}
-        <br>
+        <hr>
         <h3>Tambahkan Komentar</h3>
         <form action="" method="POST">
             {% csrf_token %}
@@ -129,11 +132,12 @@
                 {{form.as_table}}
                 <tr>
                     <td colspan="2">
-                        <input type="submit">
+                        <input type="submit" class="submitkomen">
                     </td>
                 </tr>
             </table>
         </form>
+        {% endif %}
     </div>
     
     <!-- <div class="adrian">
