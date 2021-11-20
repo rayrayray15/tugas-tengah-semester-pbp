@@ -109,8 +109,7 @@
         <h4>Komentar</h4>
         <br>
         {% if not comments.all %}
-            No Comments Yet... <a href="#">
-            Add One</a>
+            No Comments Yet...
         {% else %}
             {% for comment in comments.all %}
                 <strong>
