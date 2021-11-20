@@ -259,16 +259,35 @@ section {
     border: 0px;
 }
 
-.form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+/* STYLES FOR COMMENT SECTION */
+
+.pemisah {
+    margin-left: 2em;
+    margin-bottom: 2em;
 }
 
-.form-container {
+/* .komengan {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    align-content: flex-start;
 }
+.name {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+
+.komen {
+    display: flex;
+    justify-content: center;
+}
+
+#myForm {
+    width: 500px;
+    height: 500px;
+} */
 
 /* CODE FOR POP UP BELOW */
 
