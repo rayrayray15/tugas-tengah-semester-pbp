@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
 from .forms_login2 import CreateUserForm
+import json
 
 @csrf_exempt
 def login(request):
