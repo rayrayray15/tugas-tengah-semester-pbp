@@ -49,6 +49,7 @@ def daftar(request):
             }, status=200)
         else :
           return JsonResponse({
+              "request" : request.POST,
               "status": False,
               "message": "Failed to Sign Up"
             }, status=401)
