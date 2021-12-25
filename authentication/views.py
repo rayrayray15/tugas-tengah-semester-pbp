@@ -39,7 +39,7 @@ def daftar(request):
     form = CreateUserForm()
 
     if request.method == 'POST' :
-        form = CreateUserForm(request.POST)
+        form = CreateUserForm(json.loads(request.body))
         if form.is_valid():
             form.save()
             # Redirect to a success page.
