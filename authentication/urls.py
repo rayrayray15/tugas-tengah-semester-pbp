@@ -1,8 +1,9 @@
 from django.urls import include, path
-from .views import login, logout
+from .views import login, logoutFlutter, daftar
 
 
 urlpatterns = [
     path('', login, name='loginflutter'),
-    path('logout', logout, name='logoutflutter'),
+    path('logout', logoutFlutter, name='logoutflutter'),
+    path('daftar', daftar, name='daftarflutter'),
 ]
