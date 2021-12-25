@@ -21,6 +21,7 @@ import statistik.urls as statistik
 import faq.urls as faq
 import infovaksin.urls as infovaksin
 import LokasiVaksin.urls as LokasiVaksin
+import authentication.urls as authentication
 
 
 urlpatterns = [
@@ -31,5 +32,5 @@ urlpatterns = [
     path('tanya-jawab/', include(faq)),
     path('infovaksin/', include(infovaksin)),
     path('lokasi-vaksin/', include(LokasiVaksin)),
-
+    path('authentication/', include(authentication)),
 ]
