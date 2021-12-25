@@ -40,7 +40,11 @@ def daftar(request):
     form = CreateUserForm()
 
     if request.method == 'POST' :
-        form = CreateUserForm(json.loads(request.body))
+        form.cleaned_data['username'] = request.POST.get('username')
+        form.cleaned_data['email'] = request.POST.get('email')
+        form.cleaned_data['password1'] = request.POST.get('password1')
+        form.cleaned_data['password2'] = request.POST.get('password2')
+        
         if form.is_valid():
             form.save()
             # Redirect to a success page.
