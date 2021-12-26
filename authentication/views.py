@@ -68,7 +68,7 @@ def daftar(request):
     
 
 def logoutFlutter(request) :
-    logout(request)
+    logout(request.body)
     return JsonResponse({
               "status": True,
               "message": "Succes Logout"
