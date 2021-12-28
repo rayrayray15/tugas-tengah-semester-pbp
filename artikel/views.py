@@ -12,7 +12,7 @@ from .forms import ArtikelForm
 import json
 
 def get_object(request):
-    data = [artikel.json() for artikel in Artikel.objects.all()]
+    data = [artikel.json() for artikel in Artikel.objects.all().order_by('-id')]
     return HttpResponse(json.dumps(data), content_type="application/json")
 
 class ArtikelListView(ListView):
