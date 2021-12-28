@@ -1,14 +1,20 @@
+from django.core import serializers
 from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
+
+from .forms_feedback2 import FeedbackForm2
 from .forms_login2 import CreateUserForm
 import json
+
+from .models import Feedback2
+
 
 @csrf_exempt
 def login(request):
@@ -64,8 +70,6 @@ def daftar(request):
               "status": False,
               "message": "Failed to Sign Up"
             }, status=401)
-    
-    
 
 def logoutFlutter(request) :
     logout(request.body)
@@ -73,3 +77,35 @@ def logoutFlutter(request) :
               "status": True,
               "message": "Succes Logout"
             }, status=200)
+
+
+@csrf_exempt
+def fb_json(request):
+    form = FeedbackForm2()
+
+    if request.method == 'POST' or request.method == 'GET':
+        # print("OKE")
+        form = FeedbackForm2(json.loads(request.body))
+
+        if form.is_valid():
+            form.save()
+            # Redirect to a success page.
+            return JsonResponse({
+                "status": True,
+                "message": "Successfully Fill the Feedback Form!"
+            }, status=200)
+        else:
+            return JsonResponse({
+                "request": form.errors,
+                "status": False,
+                "message": "Failed to Fill the Feedback Form"
+            }, status=401)
+    else:
+        return JsonResponse({
+            "status": False,
+            "message": "Failed to Fill the Feedback Form"
+        }, status=401)
+
+# def json_fb(request):
+#     data = serializers.serialize('json', Feedback2.objects.all())
+#     return HttpResponse(data, content_type="application/json")
