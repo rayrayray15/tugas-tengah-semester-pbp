@@ -25,3 +25,12 @@ class Artikel(models.Model):
             img_temp.flush()
             self.image_file.save(f"image_{self.pk}", File(img_temp))
         self.save()
+    
+    def json(self):
+        return {
+            'title': self.title,
+            'body': self.body,
+            'pub_date': str(self.pub_date),
+            'image_url': self.image_url,
+            'slug': self.slug,
+        }

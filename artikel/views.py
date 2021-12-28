@@ -9,11 +9,11 @@ from django.http import JsonResponse
 from django.core import serializers
 from .models import Artikel
 from .forms import ArtikelForm
+import json
 
-def json(request):
-        artikels = Artikel.objects.all()
-        data = serializers.serialize('json', artikels)
-        return HttpResponse(data, content_type="application/json")
+def get_object(request):
+    data = [artikel.json() for artikel in Artikel.objects.all()]
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 class ArtikelListView(ListView):
     model = Artikel
