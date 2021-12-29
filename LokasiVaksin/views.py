@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import AddLokasi, Pulau, Provinsi
 from .forms import addLokasiForm
+from django.core import serializers
+from django.http.response import HttpResponse
 
 from django.contrib.auth.decorators import login_required
 
@@ -28,6 +30,14 @@ def addLokasiDef(request):
         'add_form': add_form
     }
     return render(request, 'addLokasi.html', response)
+
+def xml(request):
+    data = serializers.serialize('xml', AddLokasi.objects.all())
+    return HttpResponse(data, content_type="application/xml")
+
+def json(request):
+    data = serializers.serialize('json', AddLokasi.objects.all())
+    return HttpResponse(data, content_type="application/json")
 
 
 
