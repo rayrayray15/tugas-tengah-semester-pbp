@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'LokasiVaksin',
     'authentication',
     'corsheaders',
-    'clear_cache'
+    # 'clear_cache'
 ]
 
 MIDDLEWARE = [
