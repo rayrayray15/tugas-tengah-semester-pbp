@@ -112,4 +112,9 @@ def fb_json(request):
 def feedback_json(request):
     qs = Feedback.objects.all()
     data = serialize("json", qs, fields=('name', 'email', 'comments'))
-    return HttpResponse(data, content_type="application/json")
+    return JsonResponse({
+        "comments": "fine, thank u",
+        "name": "kinan",
+        "email": "kinan@gmail.com"
+    })
+    # return HttpResponse(data, content_type="application/json")
