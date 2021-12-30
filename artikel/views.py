@@ -60,3 +60,18 @@ class AddArticleView(View):
                 return JsonResponse({"error": form.errors}, status=400)
 
         return JsonResponse({"error": ""}, status=400)
+
+def AddArticleFlutter(request, id):
+    if request.method == 'POST':
+        newArticle = json.loads(request.body)
+
+        new_article = Artikel(
+            title = newArticle['title'],
+            body = newArticle['body'],
+            pub_date = newArticle['pubDate'],
+            image_url = newArticle['imageUrl'],
+            slug = newArticle['slug'],
+        )
+
+        new_article.save()
+        return JsonResponse({"instance": "Artikel berhasil disimpan!"}, status=200)
