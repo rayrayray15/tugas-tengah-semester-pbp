@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'LokasiVaksin',
     'authentication',
     'corsheaders',
-    'rest_framework'
+    # 'rest_framework'
     # 'clear_cache'
 ]
 
