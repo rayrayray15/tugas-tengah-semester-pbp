@@ -6,9 +6,12 @@ from django.contrib.auth import logout
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
+from rest_framework import generics
 
 from beranda.forms_homepage import FeedbackForm
 from beranda.models import Feedback
+from beranda import models
+from .serializers import FeedbackSerializer
 from django.core.serializers import serialize
 from .forms_login2 import CreateUserForm
 import json
@@ -85,10 +88,6 @@ def json_fb(request) :
 def fb_json(request):
     if request.method == 'POST':
         form = FeedbackForm()
-        #         form.cleaned_data['username'] = request.POST.get('username')
-        #         form.cleaned_data['email'] = request.POST.get('email')
-        #         form.cleaned_data['password1'] = request.POST.get('password1')
-        #         form.cleaned_data['password2'] = request.POST.get('password2')
 
         if form.is_valid():
             form.save()
@@ -118,3 +117,11 @@ def feedback_json(request):
         "email": "kinan@gmail.com"
     })
     # return HttpResponse(data, content_type="application/json")
+
+class ListFeedback(generics.ListCreateAPIView):
+    queryset = models.Feedback.objects.all()
+    serializer_class = FeedbackSerializer
+
+class DetailFeedback(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Feedback.objects.all()
+    serializer_class = FeedbackSerializer

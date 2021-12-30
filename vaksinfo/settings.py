@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'LokasiVaksin',
     'authentication',
     'corsheaders',
+    'rest_framework'
     # 'clear_cache'
 ]
 
@@ -110,6 +111,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 
 # Internationalization
