@@ -20,11 +20,10 @@ const FG_ORANGE = `rgba(255, 127, 0, 0.6)`;
 let mainChart = getChart2DContext(`#main-chart`);
 let vaxDemographicChart = getChart2DContext(`#vax-demographic-chart`);
 let vaxStageChart = getChart2DContext(`#vax-stage-chart`);
-let provinceChart = getChart2DContext(`#province-chart`);
 let mainChartObjArr = [];
 let provinceObj = {};
 
-let overallCasesChart, vaccineDemographicChart, vaccineStageChart, provinceCasesChart;
+let overallCasesChart, vaccineDemographicChart, vaccineStageChart;
 
 let init = () =>
 {
@@ -209,75 +208,6 @@ let init = () =>
 			increaseCounter();  
 		},
 	});
-
-	$.ajax(
-	{
-		type: `GET`,
-		url: PROV_ENDP,
-		success: (data) => 
-		{
-			let provincesArr = [], casesArr = [];
-			$.each(data, (i, datum) => 
-			{
-				for(let obj of datum)
-				{
-					if(obj.fid != 35) 
-					{
-						provincesArr.push(obj.provinsi);
-						casesArr.push(obj.kasusPosi);
-						provinceObj[obj.provinsi] = [obj.kasusPosi, obj.kasusSemb, obj.kasusMeni];
-					}
-				}
-			});
-			provinceCasesChart = new Chart(provinceChart,
-			{
-				type: `bar`,
-				data: 
-				{
-					labels: provincesArr,
-					datasets: [
-					{
-						label: `Kasus Positif`,
-						data: casesArr,
-						backgroundColor: FG_BLUE,
-					},],
-				},
-				options: 
-				{
-					maintainAspectRatio: false,
-					responsive: true,
-					plugins: 
-					{
-						title: 
-						{
-							display: true,
-							text: `Jumlah Kasus Positif COVID-19 Per Provinsi`,
-							font: 
-							{
-								size: 14,
-							},
-							color: `rgba(0, 0, 0, 0.8)`,
-							padding: 30,
-						},
-						legend: 
-						{
-							display: false,
-						},
-					},
-				},
-			});
-			let provincesArrSorted = provincesArr.slice(0);
-			provincesArrSorted.sort();
-			for(prov of provincesArrSorted)
-			{
-				$(`#prov-select`).append($(`<option>`, 
-				{
-					value: prov,
-					text: prov
-				}));
-			}
-		},
-	});
 };
 
 $(`#prov-select`).change(() =>
@@ -295,7 +225,6 @@ $(`#refreshBtn`).click(() =>
 	overallCasesChart.destroy();
 	vaccineDemographicChart.destroy();
 	vaccineStageChart.destroy();
-	provinceCasesChart.destroy();
 	init();
 });
 
