@@ -61,6 +61,7 @@ class AddArticleView(View):
 
         return JsonResponse({"error": ""}, status=400)
 
+@csrf_exempt
 def AddArticleFlutter(request):
     if request.method == 'POST':
         newArticle = json.loads(request.body)
