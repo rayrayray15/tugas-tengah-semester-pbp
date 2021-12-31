@@ -10,6 +10,7 @@ from django.core import serializers
 from .models import Artikel
 from .forms import ArtikelForm
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 def get_object(request):
     data = [artikel.json() for artikel in Artikel.objects.all().order_by('-id')]
@@ -61,6 +62,7 @@ class AddArticleView(View):
 
         return JsonResponse({"error": ""}, status=400)
 
+@csrf_exempt
 def AddArticleFlutter(request):
     if request.method == 'POST':
         newArticle = json.loads(request.body)
